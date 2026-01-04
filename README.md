@@ -1,5 +1,3 @@
-好的！这是可以直接复制到GitHub的完整README.md文件：
-
 ```markdown
 # V2Ray + Komari Agent Docker 镜像
 
