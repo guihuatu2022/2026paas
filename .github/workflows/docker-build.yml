@@ -3,10 +3,10 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # 推送到main分支时触发
+      - main
     tags:
-      - 'v*'  # 推送tag时触发（如v1.0.0）
-  workflow_dispatch:  # 允许手动触发
+      - 'v*'
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -57,5 +57,13 @@ jobs:
           cache-to: type=gha,mode=max
           platforms: linux/amd64
 
-      - name: Image digest
-        run: echo ${{ steps.meta.outputs.tags }}
+      - name: Build summary
+        run: |
+          echo "✅ Docker image built and pushed successfully!"
+          echo ""
+          echo "📦 Available tags:"
+          echo "  - ghcr.io/${{ github.repository }}:main"
+          echo "  - ghcr.io/${{ github.repository }}:latest"
+          echo ""
+          echo "🚀 Deploy with:"
+          echo "  docker pull ghcr.io/${{ github.repository }}:latest"
