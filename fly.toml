@@ -1,0 +1,44 @@
+# ==================== 必须修改 ====================
+# 应用名称（必须全局唯一，只能包含小写字母、数字和连字符）
+app = "your-app-name-here"  # ← 改成你的应用名，如：v2ray-proxy-2026
+
+# 主要区域（推荐：东京延迟最低，美西备选）
+primary_region = "nrt"  # ← nrt=东京 或 sjc=美西圣何塞 或 sea=西雅图
+
+# 环境变量
+[env]
+  UUID = "de04add9-5c68-8bab-950c-08cd5320df18"  # ← 必须改！生成新UUID
+  VMESS_WSPATH = "/vmess"  # ← 可选：改成自定义路径如 /ws-path-abc
+  VLESS_WSPATH = "/vless"  # ← 可选：改成自定义路径如 /vl-path-xyz
+  
+  # 如需启用Komari监控，取消下面3行注释并填写：
+  # KOMARI_ENDPOINT = "http://your-dashboard.com:25774"  # ← 填写你的Dashboard地址
+  # KOMARI_TOKEN = "your-token-here"  # ← 填写你的AD Key
+  # KOMARI_ENABLE_WEBSSH = "false"  # ← 保持false（安全）
+
+# ==================== 以下无需修改 ====================
+
+[http_service]
+  internal_port = 80
+  force_https = false
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  max_machines_running = 1
+
+[[vm]]
+  memory = '256mb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[[http_service.concurrency]]
+  type = "connections"
+  hard_limit = 250
+  soft_limit = 200
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/"
