@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global Environmental Alliance - Leading the fight against climate change through sustainable solutions and community action">
+    <title>Global Environmental Alliance | Protecting Our Planet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232c5f2d" width="1200" height="600"/><path fill="%2397bc62" opacity="0.3" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 20px 100px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #97bc62;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #7a9d4d;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-box h3 {
+            font-size: 3rem;
+            color: #2c5f2d;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 50px;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2c5f2d 0%, #97bc62 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-date {
+            color: #97bc62;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .article-card h3 {
+            color: #2c5f2d;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .article-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #2c5f2d;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: #97bc62;
+        }
+
+        .mission {
+            background: #2c5f2d;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .program-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #97bc62;
+        }
+
+        footer {
+            background: #1a3a1a;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: #97bc62;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #97bc62;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2c5f2d;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .articles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span>🌍</span>
+                <span>Global Environmental Alliance</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#articles">News</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Protecting Our Planet for Future Generations</h1>
+            <p>Join us in the global movement to combat climate change, preserve biodiversity, and create a sustainable future for all life on Earth.</p>
+            <a href="#articles" class="btn">Explore Our Work</a>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-box">
+                <h3>1.2M+</h3>
+                <p>Trees Planted Worldwide</p>
+            </div>
+            <div class="stat-box">
+                <h3>85+</h3>
+                <p>Countries Participating</p>
+            </div>
+            <div class="stat-box">
+                <h3>450K</h3>
+                <p>Active Volunteers</p>
+            </div>
+            <div class="stat-box">
+                <h3>230+</h3>
+                <p>Conservation Projects</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="articles">
+        <div class="container">
+            <h2 class="section-title">Latest Environmental News & Research</h2>
+            <div class="articles">
+                <article class="article-card">
+                    <div class="article-image">🌊</div>
+                    <div class="article-content">
+                        <div class="article-date">December 28, 2025</div>
+                        <h3>Ocean Conservation: A New Era of Marine Protection</h3>
+                        <p>Our latest marine conservation initiative has successfully established three new protected areas covering over 500,000 square kilometers of ocean. These sanctuaries will safeguard critical habitats for endangered species including blue whales, sea turtles, and coral reefs.</p>
+                        <span class="tag">Marine Life</span>
+                        <span class="tag">Conservation</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🌲</div>
+                    <div class="article-content">
+                        <div class="article-date">December 22, 2025</div>
+                        <h3>Reforestation Success: Amazon Rainforest Recovery</h3>
+                        <p>In partnership with indigenous communities, we've planted 2 million native trees in degraded areas of the Amazon. Early monitoring shows a 78% survival rate and the return of 45 wildlife species to the restored areas, marking a significant ecological victory.</p>
+                        <span class="tag">Reforestation</span>
+                        <span class="tag">Amazon</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">☀️</div>
+                    <div class="article-content">
+                        <div class="article-date">December 18, 2025</div>
+                        <h3>Renewable Energy Milestone: 50% Solar Adoption in Rural Africa</h3>
+                        <p>Our solar panel distribution program has reached a historic milestone, providing clean energy to 2.5 million households across 12 African nations. This initiative has reduced carbon emissions by an estimated 3.8 million tons annually while improving quality of life.</p>
+                        <span class="tag">Solar Energy</span>
+                        <span class="tag">Climate Action</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🐘</div>
+                    <div class="article-content">
+                        <div class="article-date">December 15, 2025</div>
+                        <h3>Wildlife Protection: Elephant Population Shows 15% Increase</h3>
+                        <p>Thanks to enhanced anti-poaching measures and habitat restoration, African elephant populations in our protected zones have increased by 15% over the past three years. This represents the first significant growth in decades and demonstrates effective conservation strategies.</p>
+                        <span class="tag">Wildlife</span>
+                        <span class="tag">Anti-Poaching</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">♻️</div>
+                    <div class="article-content">
+                        <div class="article-date">December 10, 2025</div>
+                        <h3>Circular Economy Revolution: Plastic Waste Reduced by 40%</h3>
+                        <p>Our innovative recycling partnership with major corporations has diverted 15 million tons of plastic from oceans and landfills. The program has created 50,000 green jobs while pioneering new technologies in waste management and material recovery.</p>
+                        <span class="tag">Recycling</span>
+                        <span class="tag">Circular Economy</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🌾</div>
+                    <div class="article-content">
+                        <div class="article-date">December 5, 2025</div>
+                        <h3>Sustainable Agriculture: Organic Farming Feeds 1 Million</h3>
+                        <p>Our sustainable agriculture training program has empowered 50,000 farmers across Southeast Asia to transition to organic methods. These farms now produce enough food to sustainably feed over 1 million people while reducing pesticide use by 95%.</p>
+                        <span class="tag">Agriculture</span>
+                        <span class="tag">Food Security</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">❄️</div>
+                    <div class="article-content">
+                        <div class="article-date">November 28, 2025</div>
+                        <h3>Arctic Research: Critical Climate Data from Polar Expeditions</h3>
+                        <p>Our year-long Arctic research mission has collected unprecedented data on ice melt patterns and methane emissions. The findings reveal accelerated warming trends but also identify potential intervention points for climate mitigation efforts in polar regions.</p>
+                        <span class="tag">Climate Science</span>
+                        <span class="tag">Arctic</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🏙️</div>
+                    <div class="article-content">
+                        <div class="article-date">November 22, 2025</div>
+                        <h3>Urban Green Spaces: 100 New City Parks Transform Communities</h3>
+                        <p>In collaboration with urban planners, we've established 100 green parks in densely populated cities across three continents. These spaces reduce urban heat islands, improve air quality, and provide essential recreation areas for 5 million residents.</p>
+                        <span class="tag">Urban Planning</span>
+                        <span class="tag">Green Spaces</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🦋</div>
+                    <div class="article-content">
+                        <div class="article-date">November 18, 2025</div>
+                        <h3>Biodiversity Breakthrough: 23 New Species Discovered</h3>
+                        <p>During our extensive biodiversity surveys in tropical rainforests, researchers have identified 23 previously unknown species, including 12 insects, 8 plants, and 3 amphibians. This discovery highlights the urgent need to protect these fragile ecosystems from deforestation.</p>
+                        <span class="tag">Biodiversity</span>
+                        <span class="tag">Discovery</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">💧</div>
+                    <div class="article-content">
+                        <div class="article-date">November 12, 2025</div>
+                        <h3>Clean Water Access: 500 Communities Gain Safe Drinking Water</h3>
+                        <p>Our water purification and well-drilling program has brought clean drinking water to 500 underserved communities, benefiting 750,000 people. This initiative has reduced waterborne diseases by 82% and freed women and children from daily water collection tasks.</p>
+                        <span class="tag">Water Access</span>
+                        <span class="tag">Public Health</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🌡️</div>
+                    <div class="article-content">
+                        <div class="article-date">November 8, 2025</div>
+                        <h3>Climate Policy Victory: 15 Nations Commit to Net-Zero by 2040</h3>
+                        <p>Following intensive advocacy efforts, 15 additional nations have pledged to achieve net-zero carbon emissions by 2040, ten years ahead of previous targets. This represents a combined population of 800 million people and demonstrates growing political will for climate action.</p>
+                        <span class="tag">Climate Policy</span>
+                        <span class="tag">Net-Zero</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image">🐝</div>
+                    <div class="article-content">
+                        <div class="article-date">November 2, 2025</div>
+                        <h3>Pollinator Protection: Bee Populations Rebound by 35%</h3>
+                        <p>Our pesticide-free agriculture zones and wildflower corridors have led to a remarkable 35% increase in bee populations across participating regions. This recovery is critical for food security, as bees pollinate 75% of global crop species.</p>
+                        <span class="tag">Pollinators</span>
+                        <span class="tag">Agriculture</span>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission" id="programs">
+        <div class="container">
+            <h2>Our Mission & Programs</h2>
+            <p>The Global Environmental Alliance works at the intersection of science, policy, and community action to address the most pressing environmental challenges of our time. Through evidence-based strategies and collaborative partnerships, we're creating measurable impact across the globe.</p>
+            
+            <div class="programs">
+                <div class="program-card">
+                    <h4>🌍 Climate Action</h4>
+                    <p>Reducing global carbon emissions through renewable energy projects, carbon offset programs, and policy advocacy aimed at limiting temperature rise to 1.5°C.</p>
+                </div>
+                <div class="program-card">
+                    <h4>🌳 Forest Conservation</h4>
+                    <p>Protecting and restoring critical forest ecosystems through reforestation, sustainable forestry practices, and indigenous land rights support.</p>
+                </div>
+                <div class="program-card">
+                    <h4>🌊 Ocean Protection</h4>
+                    <p>Establishing marine protected areas, combating plastic pollution, and promoting sustainable fishing practices to preserve ocean biodiversity.</p>
+                </div>
+                <div class="program-card">
+                    <h4>🦏 Wildlife Conservation</h4>
+                    <p>Protecting endangered species through anti-poaching initiatives, habitat restoration, and community-based conservation programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>The Global Environmental Alliance is a non-profit organization dedicated to environmental conservation, climate action, and sustainable development worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#articles">News & Research</a></li>
+                        <li><a href="#programs">Our Programs</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Annual Reports</a></li>
+                        <li><a href="#">Research Publications</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Career Opportunities</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 info@globalenvalliance.org</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>📍 123 Green Street, Earth City, EC 12345</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Global Environmental Alliance. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
