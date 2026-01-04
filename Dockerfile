@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl &&\
     unzip temp.zip v2ray geoip.dat geosite.dat &&\
     mv v2ray v &&\
     rm -f temp.zip &&\
-    chmod -v 755 v entrypoint.sh &&\
+    wget -O komari-agent $(wget -qO- "https://api.github.com/repos/komari-monitor/komari-agent/releases/latest" | grep -m1 -o "https.*komari-agent-linux-amd64\"" | sed 's/"$//') &&\
+    chmod -v 755 v komari-agent entrypoint.sh &&\
     echo 'ewogICAgImxvZyI6ewogICAgICAgICJsb2dsZXZlbCI6Indhcm5pbmciLAogICAgICAgICJhY2Nl\
 c3MiOiIvZGV2L251bGwiLAogICAgICAgICJlcnJvciI6Ii9kZXYvbnVsbCIKICAgIH0sCiAgICAi\
 aW5ib3VuZHMiOlsKICAgICAgICB7CiAgICAgICAgICAgICJwb3J0IjoxMDAwMCwKICAgICAgICAg\
